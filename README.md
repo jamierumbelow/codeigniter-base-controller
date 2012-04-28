@@ -1,5 +1,7 @@
 # codeigniter-base-controller
 
+[![Build Status](https://secure.travis-ci.org/jamierumbelow/codeigniter-base-controller.png?branch=master)](http://travis-ci.org/jamierumbelow/codeigniter-base-controller)
+
 codeigniter-base-controller is an extended `CI_Controller` class to use in your CodeIgniter applications. Any controllers that inherit from `MY_Controller` get intelligent view autoloading, layout support and asides/partials. It's strongly driven by the ideals of convention over configuration, favouring simplicity and consistency over configuration and complexity.
 
 ## Synopsis
