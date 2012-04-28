@@ -118,6 +118,7 @@ Before CodeIgniter throws a standard 404, `MY_Controller` will look for a `_404`
 
 **Version 1.3.0 - IN DEVELOPMENT**
 * Vastly improved documentation
+* Added unit test suite
 
 **Version 1.0.0 - 1.2.0**
 * Initial Release
