@@ -1,7 +1,7 @@
 <?php
 /**
  * A base controller for CodeIgniter with view autoloading, layout support,
- * model loading, asides/partials and per-controller 404
+ * model loading, helper loading, asides/partials and per-controller 404
  *
  * @link http://github.com/jamierumbelow/codeigniter-base-controller
  * @copyright Copyright (c) 2012, Jamie Rumbelow <http://jamierumbelow.net>
@@ -16,7 +16,7 @@ class MY_Controller_tests extends PHPUnit_Framework_TestCase
     /* --------------------------------------------------------------
      * VIEW AUTOLOADING
      * ------------------------------------------------------------ */
-    
+
     public function test_autoloads_view()
     {
         $this->controller = new Users();
@@ -142,6 +142,28 @@ class MY_Controller_tests extends PHPUnit_Framework_TestCase
         $this->controller->load->expects($this->at(2))
                                ->method('model')
                                ->with($this->equalTo('m_session'), $this->equalTo('session'));
+
+        $this->controller->__construct();
+    }
+
+    /* --------------------------------------------------------------
+     * HELPER LOADING
+     * ------------------------------------------------------------ */
+
+    public function test_constructor_loads_helpers()
+    {
+        $this->controller = new Helpers();
+        $this->controller->load = $this->getMock('CI_Loader');
+
+        $this->controller->load->expects($this->at(0))
+                               ->method('helper')
+                               ->with($this->equalTo('cookie'));
+        $this->controller->load->expects($this->at(1))
+                               ->method('helper')
+                               ->with($this->equalTo('file'));
+        $this->controller->load->expects($this->at(2))
+                               ->method('helper')
+                               ->with($this->equalTo('xml'));
 
         $this->controller->__construct();
     }
