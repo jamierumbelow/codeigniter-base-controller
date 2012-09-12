@@ -116,7 +116,7 @@ If, for example, you name your models `model_user`, you can specify the model st
 
 ## Helper Loading
 
-You can specify a lost of helpers to lead with the `$this->helpers` variable:
+You can specify a lost of helpers to load with the `$this->helpers` variable:
 
     protected $helpers = array( 'cookie', 'file', 'xml' );
 
