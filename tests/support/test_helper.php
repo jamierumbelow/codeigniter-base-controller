@@ -1,7 +1,7 @@
 <?php
 /**
  * A base controller for CodeIgniter with view autoloading, layout support,
- * model loading, asides/partials and per-controller 404
+ * model loading, helper loading, asides/partials and per-controller 404
  *
  * @link http://github.com/jamierumbelow/codeigniter-base-controller
  * @copyright Copyright (c) 2012, Jamie Rumbelow <http://jamierumbelow.net>
@@ -11,7 +11,7 @@ require_once 'core/MY_Controller.php';
 require_once 'tests/support/test_controllers.php';
 
 /**
- * test_helper.php is the bootstrap file for our tests - it loads up an 
+ * test_helper.php is the bootstrap file for our tests - it loads up an
  * appropriate faux-CodeIgniter environment for our tests to run in.
  */
 
@@ -35,6 +35,7 @@ class CI_Controller
 class CI_Loader
 {
     public function model($name, $assign) {}
+    public function helper($name) {}
     public function view($file, $data = array(), $ret = FALSE) {}
 
     public function __call($method, $params = array()) {}
