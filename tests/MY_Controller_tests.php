@@ -16,7 +16,7 @@ class MY_Controller_tests extends PHPUnit_Framework_TestCase
     /* --------------------------------------------------------------
      * VIEW AUTOLOADING
      * ------------------------------------------------------------ */
-    
+
     public function test_autoloads_view()
     {
         $this->controller = new Users();

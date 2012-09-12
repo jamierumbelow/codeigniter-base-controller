@@ -11,7 +11,7 @@ require_once 'core/MY_Controller.php';
 require_once 'tests/support/test_controllers.php';
 
 /**
- * test_helper.php is the bootstrap file for our tests - it loads up an 
+ * test_helper.php is the bootstrap file for our tests - it loads up an
  * appropriate faux-CodeIgniter environment for our tests to run in.
  */
 
