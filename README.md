@@ -10,6 +10,8 @@ codeigniter-base-controller is an extended `CI_Controller` class to use in your 
     {
         protected $models = array( 'user', 'group' );
 
+        protected $helpers = array( 'cookie', 'file' );
+
         public function index()
         {
             $this->data['users'] = $this->user->get_all();
@@ -112,6 +114,12 @@ If, for example, you name your models `model_user`, you can specify the model st
         $this->user->get(1);
     }
 
+## Helper Loading
+
+You can specify a lost of helpers to lead with the `$this->helpers` variable:
+
+    protected $helpers = array( 'cookie', 'file', 'xml' );
+
 ## Per-controller 404 override
 
 Before CodeIgniter throws a standard 404, `MY_Controller` will look for a `_404` method on the controller. This allows you to customise the output of the 404 page on a controller-by-controller basis.
@@ -121,6 +129,7 @@ Before CodeIgniter throws a standard 404, `MY_Controller` will look for a `_404`
 **Version 1.3.0 - IN DEVELOPMENT**
 * Vastly improved documentation
 * Added unit test suite
+* Added helper autoloading
 
 **Version 1.0.0 - 1.2.0**
 * Initial Release
