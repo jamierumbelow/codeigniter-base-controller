@@ -1,7 +1,7 @@
 <?php
 /**
  * A base controller for CodeIgniter with view autoloading, layout support,
- * model loading, helper loading, asides/partials and per-controller 404
+ * model, helper, and library loading, asides/partials and per-controller 404
  *
  * @link http://github.com/jamierumbelow/codeigniter-base-controller
  * @copyright Copyright (c) 2012, Jamie Rumbelow <http://jamierumbelow.net>
@@ -36,6 +36,7 @@ class CI_Loader
 {
     public function model($name, $assign) {}
     public function helper($name) {}
+    public function library($name) {}
     public function view($file, $data = array(), $ret = FALSE) {}
 
     public function __call($method, $params = array()) {}

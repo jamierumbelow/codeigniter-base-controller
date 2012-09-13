@@ -1,7 +1,7 @@
 <?php
 /**
  * A base controller for CodeIgniter with view autoloading, layout support,
- * model loading, helper loading, asides/partials and per-controller 404
+ * model, helper, and library loading, asides/partials and per-controller 404
  *
  * @link http://github.com/jamierumbelow/codeigniter-base-controller
  * @copyright Copyright (c) 2012, Jamie Rumbelow <http://jamierumbelow.net>
@@ -57,4 +57,9 @@ class No_Layout extends MY_Controller
 class Helpers extends MY_Controller
 {
     protected $helpers = array( 'cookie', 'file', 'xml' );
+}
+
+class Libraries extends MY_Controller
+{
+    protected $libraries = array( 'calendar', 'encrypt', 'user_agent' );
 }

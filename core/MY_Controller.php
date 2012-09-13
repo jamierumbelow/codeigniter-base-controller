@@ -1,7 +1,7 @@
 <?php
 /**
  * A base controller for CodeIgniter with view autoloading, layout support,
- * model loading, helper loading, asides/partials and per-controller 404
+ * model, helper, and library loading, asides/partials and per-controller 404
  *
  * @link http://github.com/jamierumbelow/codeigniter-base-controller
  * @copyright Copyright (c) 2012, Jamie Rumbelow <http://jamierumbelow.net>
@@ -53,13 +53,18 @@ class MY_Controller extends CI_Controller
      */
     protected $helpers = array();
 
+    /**
+     * A list of libraries to be autoloaded
+     */
+    protected $libraries = array();
+
     /* --------------------------------------------------------------
      * GENERIC METHODS
      * ------------------------------------------------------------ */
 
     /**
      * Initialise the controller, tie into the CodeIgniter superobject
-     * and try to autoload the models and helpers
+     * and try to autoload the models, helpers, and libraries
      */
     public function __construct()
     {
@@ -67,6 +72,7 @@ class MY_Controller extends CI_Controller
 
         $this->_load_models();
         $this->_load_helpers();
+        $this->_load_libraries();
     }
 
     /* --------------------------------------------------------------
@@ -196,6 +202,21 @@ class MY_Controller extends CI_Controller
         foreach ($this->helpers as $helper)
         {
             $this->load->helper($helper);
+        }
+    }
+
+    /* --------------------------------------------------------------
+     * LIBRARY LOADING
+     * ------------------------------------------------------------ */
+
+    /**
+     * Load libraries based on the $this->libraries array
+     */
+    private function _load_libraries()
+    {
+        foreach ($this->libraries as $library)
+        {
+            $this->load->library($library);
         }
     }
 }

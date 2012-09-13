@@ -1,7 +1,7 @@
 <?php
 /**
  * A base controller for CodeIgniter with view autoloading, layout support,
- * model loading, helper loading, asides/partials and per-controller 404
+ * model, helper, and library loading, asides/partials and per-controller 404
  *
  * @link http://github.com/jamierumbelow/codeigniter-base-controller
  * @copyright Copyright (c) 2012, Jamie Rumbelow <http://jamierumbelow.net>
@@ -164,6 +164,28 @@ class MY_Controller_tests extends PHPUnit_Framework_TestCase
         $this->controller->load->expects($this->at(2))
                                ->method('helper')
                                ->with($this->equalTo('xml'));
+
+        $this->controller->__construct();
+    }
+
+    /* --------------------------------------------------------------
+     * LIBRARY LOADING
+     * ------------------------------------------------------------ */
+
+    public function test_constructor_loads_libraries()
+    {
+        $this->controller = new Libraries();
+        $this->controller->load = $this->getMock('CI_Loader');
+
+        $this->controller->load->expects($this->at(0))
+                               ->method('library')
+                               ->with($this->equalTo('calendar'));
+        $this->controller->load->expects($this->at(1))
+                               ->method('library')
+                               ->with($this->equalTo('encrypt'));
+        $this->controller->load->expects($this->at(2))
+                               ->method('library')
+                               ->with($this->equalTo('user_agent'));
 
         $this->controller->__construct();
     }
