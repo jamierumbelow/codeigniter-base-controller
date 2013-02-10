@@ -115,6 +115,8 @@ class MY_Controller extends CI_Controller
             // If the browser is a mobile, let' add a '_mobile' sufix in the view name
             if ($this->agent->is_mobile() === TRUE)
                 $mobile_sufix = '_mobile';
+            else
+                $mobile_sufix = NULL;
             
             // If $this->view isn't empty, load it. If it isn't, try and guess based on the controller and action name
             $view = (!empty($this->view)) ? $this->view : $this->router->directory . $this->router->class . '/' . $this->router->method . $mobile_sufix;
