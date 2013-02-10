@@ -105,11 +105,18 @@ class MY_Controller extends CI_Controller
      */
     protected function _load_view()
     {
+        // Using the 'user_agent' library to identifiy the user's browser
+        // If it' a mobile one, load a view with '_mobile' (like login_mobile.php) 
+        $this->load->library('user_agent');
+        
         // If $this->view == FALSE, we don't want to load anything
         if ($this->view !== FALSE)
         {
+            if ($this->agent->is_mobile() === TRUE)
+                $view_sufix = '_model';
+            
             // If $this->view isn't empty, load it. If it isn't, try and guess based on the controller and action name
-            $view = (!empty($this->view)) ? $this->view : $this->router->directory . $this->router->class . '/' . $this->router->method;
+            $view = (!empty($this->view)) ? $this->view : $this->router->directory . $this->router->class . '/' . $this->router->method . $view_sufix;
 
             // Load the view into $yield
             $data['yield'] = $this->load->view($view, $this->data, TRUE);
