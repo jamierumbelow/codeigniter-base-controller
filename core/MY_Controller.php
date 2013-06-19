@@ -108,6 +108,14 @@ class MY_Controller extends CI_Controller
         // If $this->view == FALSE, we don't want to load anything
         if ($this->view !== FALSE)
         {
+            // check for a json request
+            if(substr($this->uri->uri_string(), -5) == '.json') 
+            {
+                header('Content-type: application/json');
+                echo json_encode($this->data);
+                exit;
+            }
+            
             // If $this->view isn't empty, load it. If it isn't, try and guess based on the controller and action name
             $view = (!empty($this->view)) ? $this->view : $this->router->directory . $this->router->class . '/' . $this->router->method;
 
