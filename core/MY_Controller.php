@@ -25,6 +25,13 @@ class MY_Controller extends CI_Controller
      * view, layout and any asides
      */
     protected $data = array();
+    
+    /**
+     * ! For those who don't like array syntax !
+     * An object of variables to be passed through to the
+     * view, layout and any asides
+     */
+    protected $odata;
 
     /**
      * The name of the layout to wrap around the view.
@@ -64,7 +71,7 @@ class MY_Controller extends CI_Controller
     public function __construct()
     {
         parent::__construct();
-
+        $this->odata = new stdClass;
         $this->_load_models();
         $this->_load_helpers();
     }
@@ -111,6 +118,9 @@ class MY_Controller extends CI_Controller
             // If $this->view isn't empty, load it. If it isn't, try and guess based on the controller and action name
             $view = (!empty($this->view)) ? $this->view : $this->router->directory . $this->router->class . '/' . $this->router->method;
 
+            // Merging $data with $odata
+            $this->data = array_merge($this->data, get_object_vars($this->odata));
+            
             // Load the view into $yield
             $data['yield'] = $this->load->view($view, $this->data, TRUE);
 
