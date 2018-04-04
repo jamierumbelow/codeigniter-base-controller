@@ -1,6 +1,8 @@
-# codeigniter-base-controller
+# DEPRECATED: codeigniter-base-controller
 
-[![Build Status](https://secure.travis-ci.org/jamierumbelow/codeigniter-base-controller.png?branch=master)](http://travis-ci.org/jamierumbelow/codeigniter-base-controller)
+**Deprecated since I no longer use CodeIgniter. If anybody would like to take over maintainence of this repo, please get in touch.**
+
+[![No Maintenance Intended](http://unmaintained.tech/badge.svg)](http://unmaintained.tech/) [![Build Status](https://secure.travis-ci.org/jamierumbelow/codeigniter-base-controller.png?branch=master)](http://travis-ci.org/jamierumbelow/codeigniter-base-controller)
 
 codeigniter-base-controller is an extended `CI_Controller` class to use in your CodeIgniter applications. Any controllers that inherit from `MY_Controller` get intelligent view autoloading, layout support and asides/partials. It's strongly driven by the ideals of convention over configuration, favouring simplicity and consistency over configuration and complexity.
 
